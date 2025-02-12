@@ -26,7 +26,16 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Generate Dataset
+        run: python generate_data.py
+
+      - name: Preprocess Data
+        run: python preprocess.py  # ✅ Ensures `X_train.csv` exists
+
+      - name: Check if Dataset Exists
+        run: ls -lah  # ✅ Debugging step to check if `X_train.csv` exists
 
       - name: Run Training
         run: python train.py
