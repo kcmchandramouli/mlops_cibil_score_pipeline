@@ -2,8 +2,8 @@ import sagemaker
 from sagemaker.xgboost.estimator import XGBoost
 
 sagemaker_session = sagemaker.Session()
-bucket = "ml-models-bucket"
-role = "arn:aws:iam::123456789012:role/service-role/AmazonSageMaker-ExecutionRole"
+bucket = "ml-models-bucket-eto"
+role = "arn:aws:iam::354918375730:role/service-role/AmazonSageMaker-ExecutionRole-20250122T184441"
 
 X_train_s3 = sagemaker_session.upload_data(path="X_train.csv", bucket=bucket, key_prefix="data")
 y_train_s3 = sagemaker_session.upload_data(path="y_train.csv", bucket=bucket, key_prefix="data")
