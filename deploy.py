@@ -17,7 +17,7 @@ sagemaker_client.create_endpoint_config(
     ProductionVariants=[{
         "VariantName": "AllTraffic",
         "ModelName": endpoint_name,
-        "InstanceType": "ml.c5.4xlarge",
+        "InstanceType": "ml.c4.xlarge",
         "InitialInstanceCount": 1
     }]
 )
