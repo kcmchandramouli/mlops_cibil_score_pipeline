@@ -19,7 +19,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install Dependencies
-        run: pip install boto3 pandas scikit-learn sagemaker
+        run: |
+          pip install --upgrade pip
+          pip install boto3 pandas scikit-learn sagemaker xgboost
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -32,10 +34,10 @@ jobs:
         run: python generate_data.py
 
       - name: Preprocess Data
-        run: python preprocess.py  # ✅ Ensures `X_train.csv` exists
+        run: python preprocess.py  # Ensures `X_train.csv` exists
 
       - name: Check if Dataset Exists
-        run: ls -lah  # ✅ Debugging step to check if `X_train.csv` exists
+        run: ls -lah  # Debug step to confirm X_train.csv is present
 
       - name: Run Training
         run: python train.py
