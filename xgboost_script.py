@@ -7,8 +7,8 @@ import pandas as pd
 import numpy as np
 
 # Load the dataset
-train_data = pd.read_csv(os.path.join(os.environ['SM_CHANNEL_TRAIN'], 'X_train.csv'))
-train_labels = pd.read_csv(os.path.join(os.environ['SM_CHANNEL_TRAIN'], 'y_train.csv'))
+train_data = pd.read_csv(os.path.join(os.environ['SM_CHANNEL_TRAIN'], 'X_train.csv'), header=None)
+train_labels = pd.read_csv(os.path.join(os.environ['SM_CHANNEL_TRAIN'], 'y_train.csv'), header=None)
 
 # Prepare the training data
 dtrain = xgb.DMatrix(train_data, label=train_labels)
@@ -28,5 +28,5 @@ num_round = 100
 bst = xgb.train(params, dtrain, num_round)
 
 # Save the model to the output directory
-output_dir = os.environ['SM_OUTPUT_DIR']
+output_dir = os.environ['SM_MODEL_DIR']
 bst.save_model(os.path.join(output_dir, 'xgboost_model.bin'))
