@@ -5,10 +5,10 @@ endpoint_name = "cibil-score-predictor"
 
 response = sagemaker_client.create_model(
     ModelName=endpoint_name,
-    ExecutionRoleArn="arn:aws:iam::354918375730:role/service-role/AmazonSageMaker-ExecutionRole-20250122T184441",
+    ExecutionRoleArn="arn:aws:iam::183631350288:role/service-role/AmazonSageMaker-ExecutionRole-20250213T183561",
     PrimaryContainer={
         "Image": "433757028032.dkr.ecr.us-east-1.amazonaws.com/xgboost:1.3-1",
-        "ModelDataUrl": "s3://ml-models-bucket/model.tar.gz"
+        "ModelDataUrl": "s3://cibils3/model.tar.gz"
     }
 )
 

@@ -73,8 +73,8 @@ def launch_training_job():
     print("No SM_CHANNEL_TRAIN variable => Running locally to launch SageMaker job.")
 
     sagemaker_session = sagemaker.Session()
-    role = "arn:aws:iam::825765427114:role/service-role/AmazonSageMaker-ExecutionRole-20250210T121816"
-    bucket = "ml-models-bucket-eto1"
+    role = "arn:aws:iam::183631350288:role/service-role/AmazonSageMaker-ExecutionRole-20250213T183561"
+    bucket = "cibils3"
 
     # Upload the current folder so that X_train.csv and y_train.csv go to S3
     training_data_s3 = sagemaker_session.upload_data(
