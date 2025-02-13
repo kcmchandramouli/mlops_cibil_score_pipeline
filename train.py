@@ -11,7 +11,7 @@ y_train_s3 = sagemaker_session.upload_data(path="y_train.csv", bucket=bucket, ke
 xgb = XGBoost(
     entry_point="xgboost_script.py",
     framework_version="1.3-1",
-    instance_type="ml.c4.xlarge",
+    instance_type="ml.c5.2xlarge",
     instance_count=1,
     role=role,
     sagemaker_session=sagemaker_session
