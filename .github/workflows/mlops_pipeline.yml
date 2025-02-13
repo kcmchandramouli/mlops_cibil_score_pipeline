@@ -8,8 +8,8 @@ on:
 
 env:
   AWS_REGION: "us-east-1"
-  S3_BUCKET: "ml-models-bucket-eto"
-  SAGEMAKER_ROLE: "arn:aws:iam::354918375730:role/service-role/AmazonSageMaker-ExecutionRole-20250122T184441"
+  S3_BUCKET: "ml-models-bucket-eto1"
+  SAGEMAKER_ROLE: "arn:aws:iam::825765427114:role/service-role/AmazonSageMaker-ExecutionRole-20250210T121816"
 
 jobs:
   train:
